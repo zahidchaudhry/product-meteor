@@ -1,0 +1,22 @@
+<template name="layout">
+  <div id="main" role="main">
+    {{> header}}
+    {{> errors}}
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            <div id="products-container">
+              {{#if currentUser}}
+              <li class= "btn btn-inverse">
+                <a class="js-logout">Logout</a>
+              </li>
+              {{/if}}
+              {{> yield}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

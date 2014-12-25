@@ -1,0 +1,22 @@
+<template name="productsList">
+<h1>Products</h1>
+<table class = "table table-bordered table-hover table-striped" id="products-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Type</th>
+      <th colspan="3"> Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+      {{> productItem}}
+    {{/each}}
+  </tbody>
+</table>
+
+  <br/>
+  <a href="{{pathFor 'productSubmit'}}">New Product</a>
+</template>
+

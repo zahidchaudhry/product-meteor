@@ -1,0 +1,36 @@
+<template name="productEdit">
+    <div class="product-container">
+    <h1 class="control-group">Edit Product</h1>
+      <form id="edit-product" name="product" class="form">
+          <div class="field control-group {{errorClass 'name'}}">
+            <label class="control-label" for="name">Name:</label>
+            <div class="controls">
+              <input type="text" name="name" id="name" value="{{name}}" />
+              <span class="help-block">{{errorMessage 'name'}}</span>
+            </div>
+          </div>
+          <div class="field control-group ">
+            <label class="control-label" for="price">Price:</label>
+            <div class="controls">
+              <input type="text" name="price" id="price" value="{{price}}" />
+              <span class="help-block">{{errorMessage 'price'}}</span>
+            </div>
+          </div>
+          <div class="field control-group {{errorClass 'type'}}">
+            <label class="control-label" for="type">Product Type:</label>
+            <div class="controls">
+              <input name="type" id="type" type="text" value="{{type}}" />
+              <span class="help-block">{{errorMessage 'type'}}</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary" value="Create Product">Update Product</button>
+            </div>
+          </div>
+      </form>
+    </div>
+    <a href="/">Back</a>
+
+</template>

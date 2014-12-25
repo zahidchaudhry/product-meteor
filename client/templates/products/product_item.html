@@ -1,0 +1,16 @@
+<template name="productItem">
+    <tr>
+    <td>{{name}}</td>
+    <td>{{price}}</td>
+    <td>{{type}}</td>
+
+    <td colspan = "3">
+      <a href="{{pathFor 'productPage'}}">Show</a>
+      {{#if ownProduct}}
+        |
+      <a href="{{pathFor 'productEdit'}}">Edit</a> |
+      <a class="destroy" href="#">Destroy</a>
+      {{/if}}
+    </td>
+    </tr>
+</template>

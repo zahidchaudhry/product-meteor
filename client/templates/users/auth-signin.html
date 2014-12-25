@@ -1,0 +1,38 @@
+<template name="signin">
+    <div class="product-container">
+    <h2 class="control-group">Sign in</h2>
+        <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+          <div class="field control-group">
+            <label class="control-label">Email</label>
+            <div class="controls">
+              <input type="email" name="email" autofocus="true" />
+            </div>
+          </div>
+          <div class="field control-group">
+            <label class="control-label">Password</label>
+            <div class="controls">
+              <input type="password" name="password" />
+            </div>
+          </div>
+          <input type="checkbox" value="1" name="remember_me" id="remember_me" class="check-box">
+          <label for="remember_me" class="remember-me">Remember me</label>
+          <div class="control-group">
+            <div class="controls">
+              <div>
+                  <button type="submit" class="btn btn-primary control-label">Sign in</button>
+              </div>
+            </div>
+          </div>
+            <a href="{{pathFor 'join'}}" class="link-auth-alt">Need an account? Join Now.</a>
+          </form>
+
+    </div>
+</template>
+
