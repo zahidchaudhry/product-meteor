@@ -15,6 +15,7 @@ describe("Product", function () {
                 price: 20.99
             };
             Meteor.call('productInsert', product, function(error, result) {
+                console.log(product);
                 expect(error).toBeUndefined();
                 Meteor.logout(function() {
                     done();
@@ -22,6 +23,7 @@ describe("Product", function () {
             });
         });
     });
+
     it("should be allowed to be deleted by owner user", function (done) {
         // login to system and wait for callback
         Meteor.loginWithPassword("zahid.ali@tkxel.com", "tkxel1234", function(err) {
@@ -38,6 +40,26 @@ describe("Product", function () {
                 expect(error).toBeUndefined();
                 var response = Products.remove(result._id);
                 expect(response).toEqual(1);
+                Meteor.logout(function() {
+                    done();
+                })
+            });
+        });
+    });
+
+    it("should thow error if any attribute is missing", function (done) {
+        // login to system and wait for callback
+        Meteor.loginWithPassword("zahid.ali@tkxel.com", "tkxel1234", function(err) {
+            // check if we have correctly logged in the system
+            expect(err).toBeUndefined();
+
+            // create a new product
+            var product = {
+                name: 'test 00',
+                price: 20.99
+            };
+            Meteor.call('productInsert', product, function(error, result) {
+                expect(error).toBeDefined();
                 Meteor.logout(function() {
                     done();
                 })

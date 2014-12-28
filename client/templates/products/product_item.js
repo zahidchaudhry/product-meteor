@@ -1,6 +1,3 @@
-var POST_HEIGHT = 80;
-var Positions = new Meteor.Collection(null);
-
 Template.productItem.helpers({
   ownProduct: function() {
     return this.userId == Meteor.userId();

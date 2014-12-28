@@ -1,4 +1,4 @@
-// Fixture data 
+// Fixture data for Products collection
 if (Products.find().count() === 0) {
   var now = new Date().getTime();
   Products.insert({
@@ -31,6 +31,8 @@ if (Products.find().count() === 0) {
 
 }
 
+
+// Fixture data for Users
 if (Meteor.users.find().count() == 0) {
   var users = [
     {name:"Zahid Ali",email:"zahid.ali@tkxel.com", password: "tkxel1234"},

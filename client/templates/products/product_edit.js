@@ -16,24 +16,27 @@ Template.productEdit.events({
     e.preventDefault();
     
     var currentProductId = this._id;
-    
+0
+    // get values from form and create a hash object
     var productProperties = {
       name: $(e.target).find('[name=name]').val(),
       type: $(e.target).find('[name=type]').val(),
-      price: $(e.target).find('[name=price]').val()
+      price: parseInt($(e.target).find('[name=price]').val())
     }
-    
+
+    // validate attribute presence
     var errors = validateProduct(productProperties);
-    if (errors.title || errors.url)
+    if (errors.title || errors.type || errors.price)
       return Session.set('productEditErrors', errors);
     
-    Products.update(currentProductId, {$set: productProperties}, function(error) {
+    Meteor.call('productUpdate', currentProductId, productProperties, function(error) {
+      // display the error to the user and abort
       if (error) {
-        // display the error to the user
-        alert(error.reason);
-      } else {
-        Router.go('productPage', {_id: currentProductId});
+        return throwError(error.reason);
       }
+
+      Router.go('productPage', {_id: currentProductId});
     });
+
   }
 });

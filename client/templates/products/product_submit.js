@@ -18,7 +18,7 @@ Template.productSubmit.events({
     var product = {
       type: $(e.target).find('[name=type]').val(),
       name: $(e.target).find('[name=title]').val(),
-      price: $(e.target).find('[name=price]').val()
+      price: parseInt($(e.target).find('[name=price]').val())
     };
     
     var errors = validateProduct(product);
